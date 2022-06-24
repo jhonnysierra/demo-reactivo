@@ -16,7 +16,6 @@ public class ProductoHandler {
     public Mono<ServerResponse> buscarProductos(ServerRequest request){
 
         List<Producto> productos = Arrays.asList(new Producto(1, "PC"), new Producto(2, "TV"), new Producto(3, "Netflix"));
-        Producto producto = new Producto(1, "PC");
         /**
          * ok() -> devuelve un 200
          * contentType -> Tipo de respuesta, para esta caso un JSON
@@ -24,6 +23,6 @@ public class ProductoHandler {
         return ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(producto, Producto.class);
+                .bodyValue(productos);
     }
 }
