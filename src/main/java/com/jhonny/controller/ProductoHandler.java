@@ -14,7 +14,10 @@ import java.util.List;
 public class ProductoHandler {
 
     public Mono<ServerResponse> buscarProductos(ServerRequest request){
-
+        // Pruebas de lo que viene en el request desde que se hace el llamado al endpoint
+        System.out.println("Server Request: " + request.path());
+        System.out.println("Server Request: " + request.methodName());
+        System.out.println("Server Request: " + request.headers().firstHeader("User-Agent"));
         List<Producto> productos = Arrays.asList(new Producto(1, "PC"), new Producto(2, "TV"), new Producto(3, "Netflix"));
         /**
          * ok() -> devuelve un 200
